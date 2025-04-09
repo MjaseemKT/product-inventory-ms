@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductInventorySystem.API", "ProductInventorySystem.API\ProductInventorySystem.API.csproj", "{027CF81F-E49B-49C9-B0E6-80E3C7FF2110}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductInventorySystem.Client", "ProductInventorySystem.Client\ProductInventorySystem.Client.csproj", "{C4F9EFB4-FE7C-49C9-B3B2-AAD11FD40150}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{027CF81F-E49B-49C9-B0E6-80E3C7FF2110}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{027CF81F-E49B-49C9-B0E6-80E3C7FF2110}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{027CF81F-E49B-49C9-B0E6-80E3C7FF2110}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{027CF81F-E49B-49C9-B0E6-80E3C7FF2110}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4F9EFB4-FE7C-49C9-B3B2-AAD11FD40150}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4F9EFB4-FE7C-49C9-B3B2-AAD11FD40150}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4F9EFB4-FE7C-49C9-B3B2-AAD11FD40150}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4F9EFB4-FE7C-49C9-B3B2-AAD11FD40150}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F9076A49-12D0-4B71-AF72-9F7DC6B20F71}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,58 @@
+﻿@page "/create-product"
+@inject IProductService ProductService
+
+@using ProductInventorySystem.Client.Models
+@using ProductInventorySystem.Client.Services
+@using Microsoft.AspNetCore.Components.Forms
+
+<h3>Create Product</h3>
+
+<EditForm Model="@product" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="mb-3">
+        <label>Product Code</label>
+        <InputText class="form-control" @bind-Value="product.ProductCode" />
+    </div>
+
+    <div class="mb-3">
+        <label>Product Name</label>
+        <InputText class="form-control" @bind-Value="product.ProductName" />
+    </div>
+
+    <div class="mb-3">
+        <label>HSN Code</label>
+        <InputText class="form-control" @bind-Value="product.HsnCode" />
+    </div>
+
+    <button class="btn btn-primary" type="submit">Create</button>
+</EditForm>
+
+@if (!string.IsNullOrEmpty(message))
+{
+    <div class="alert alert-info mt-3">@message</div>
+}
+
+@code {
+    private ProductRequest product = new ProductRequest
+        {
+            Variants = new List<VariantRequest>()
+        };
+
+    private string message;
+
+    private async Task HandleValidSubmit()
+    {
+        try
+        {
+            await ProductService.CreateProductAsync(product);
+            message = "Product created successfully!";
+            product = new ProductRequest { Variants = new List<VariantRequest>() }; 
+        }
+        catch (Exception ex)
+        {
+            message = $"Error: {ex.Message}";
+        }
+    }
+}

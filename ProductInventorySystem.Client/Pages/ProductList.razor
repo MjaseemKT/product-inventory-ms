@@ -1,0 +1,42 @@
+﻿@using ProductInventorySystem.Client.Models
+@using ProductInventorySystem.Client.Services
+
+@inject IProductService ProductService
+
+@code {
+    private List<ProductRequest> products;
+
+    protected override async Task OnInitializedAsync()
+    {
+        products = await ProductService.GetProductsAsync();
+    }
+}
+
+<h3>Products</h3>
+
+@if (products == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product Code</th>
+                <th>Name</th>
+                <th>HSN</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in products)
+            {
+                <tr>
+                    <td>@product.ProductCode</td>
+                    <td>@product.ProductName</td>
+                    <td>@product.HsnCode</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

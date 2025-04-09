@@ -1,0 +1,43 @@
+﻿@page "/stock-management"
+@using ProductInventorySystem.Client.Models
+@using ProductInventorySystem.Client.Services
+@inject IProductService ProductService
+
+<h3>Stock Management</h3>
+
+<EditForm Model="@stock" OnValidSubmit="AddStock">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    
+    <InputText class="form-control" @bind="stock.ProductId" placeholder="Product ID" />
+    <InputNumber class="form-control" @bind="stock.Quantity" />
+
+    <button class="btn btn-success mt-2" type="submit">Add Stock</button>
+</EditForm>
+
+<EditForm Model="@stock" OnValidSubmit="RemoveStock">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    
+    <InputText class="form-control" @bind="stock.ProductId" placeholder="Product ID" />
+    <InputNumber class="form-control" @bind="stock.Quantity" />
+
+    <button class="btn btn-danger mt-2" type="submit">Remove Stock</button>
+</EditForm>
+
+@code {
+    private StockRequest stock = new StockRequest
+    {
+        VariantCombination = new Dictionary<string, string>()
+    };
+
+    private async Task AddStock()
+    {
+        await ProductService.AddStockAsync(stock);
+    }
+
+    private async Task RemoveStock()
+    {
+        await ProductService.RemoveStockAsync(stock);
+    }
+}
